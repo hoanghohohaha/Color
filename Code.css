@@ -383,8 +383,108 @@
 
   body{
       margin: 0px;
+      background-color: cadetblue;
   }
+.box{
+  width: 150px;
+  height: 150px;
+  margin:10px;
+}
+#colorcontain{
+  display: grid;
+  width: max-content;
+  height: max-content;
+  grid-template-areas:
+  'q1 q2'
+  'q3 q4';
+  margin-top: 100px;
+}
+#q1{
+  grid-area: q1 ;
+  background: none;
+}
+#q2{
+  grid-area: q2 ;
+  background: none;
+}
 
+#q3{
+  grid-area: q3 ;
+  background: none;
+}
 
-
-
+#q4{
+  grid-area: q4 ;
+  background: none;
+}
+.Playbtn, .Menubtn, .Highscorebtn, #Backbtn{
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  height: max-content;
+  width: max-content;
+  padding: 20px 20px;
+  color: white;
+  background: black;
+  font-family: 'Courier New', Courier, monospace;
+  border: white 1px;
+  margin: 10px 10px;
+  border-style: solid;
+  font-size: x-large;
+}
+#gamemenu{
+  margin-top: 200px;
+  margin-left :50%;
+  transform: translate(-50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: column nowrap;
+}
+#maincontain{
+  display:none;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+}
+#gameover{
+  display:none;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+}
+#highscorecontain{
+  display:none;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+}
+#score{
+  font-size: xx-large;
+  font-family: 'Courier New', Courier, monospace;
+  color:white;
+  padding: 20px 20px;
+  text-align: center;
+}
+#question{
+  font-size: 100px;
+  font-family: 'Courier New', Courier, monospace;
+  color:white;
+  padding: 20px 20px;
+}
+#text{
+  color:white;
+  font-size: xx-large;
+  margin-top:30px;
+  text-align: center;
+  padding:50px;
+  font-family: 'Courier New', Courier, monospace;
+}
+#high{
+  color:white;
+  font-size: xx-large;
+  margin-top:30px;
+  text-align: center;
+  padding:50px;
+  font-family: 'Courier New', Courier, monospace;
+}
