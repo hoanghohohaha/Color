@@ -16,6 +16,7 @@ function loading(){
         document.getElementById('loadingcontain').style.display='none';
     }, 2000);
 }
+
 function shuffle(array){
     for (let i = array.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
@@ -24,39 +25,60 @@ function shuffle(array){
         return array;
 }
 
+function clear(){
+    document.getElementById('question').style.color=`white`;
+    document.getElementById('question').innerHTML=``;
+    document.getElementById('question1').style.color=`white`;
+    document.getElementById('question1').innerHTML=``;
+}
+
 function randomColor(){
     var colors=['red','blue','green','yellow'];
+    var meanorcolor=Math.floor(Math.random()*2+1);
     var intt= Math.floor(Math.random()*3);
     var textcolor = colors[intt];
-    document.getElementById('question').innerHTML=`${textcolor}`
     colors= shuffle(colors);
     for(var k=0;k<colors.length;k++){
         document.getElementById(`q${k+1}`).style.background=`${colors[k]}`
     }
     var int = Math.floor(Math.random()*3);
     var color=colors[int];
-    document.getElementById('question').style.color=`${color}`;
+    if(meanorcolor==1){
+        document.getElementById('question').style.color=`${color}`;
+        document.getElementById('question').innerHTML=`${textcolor}`;
+    }else if (meanorcolor==2){
+        document.getElementById('question1').style.color=`${textcolor}`;
+        document.getElementById('question1').innerHTML=`${color}`;
+    }
     console.log(color);
+    console.log('random');
+    
 }
+
 function fetchclick(){
-    var boxx=document.getElementsByClassName('box');
-        for(var t=0;t<boxx.length;t++){
+    let boxx=document.getElementsByClassName('box');
+    console.log(boxx);
+        for(let t=0;t<boxx.length;t++){
+            console.log(boxx[t]);
             boxx[t].addEventListener('click',function(e){
                 console.log(e.target);
                 console.log(e.target.style.background);
-                    console.log(document.getElementById('question').style.color);
-                if(e.target.style.background===document.getElementById('question').style.color){
+                console.log(document.getElementById('question').style.color);
+                if(e.target.style.background===document.getElementById('question').style.color || e.target.style.background===document.getElementById('question1').innerText ){
+                    clear();
                     randomColor();
                     point=point+1;
                     document.getElementById('score').innerText=`Score:${point}`;
-                    
+                    console.log('right');
                 }
-                else if(e.target.style.background!==document.getElementById('question').style.color){
+                else if(e.target.style.background!==document.getElementById('question').style.color ||e.target.style.background!==document.getElementById('question1').innerText){
                     if(highscore<=point){
                         highscore=point;
                     }
                     document.getElementById('text').innerHTML=`Game over<br><br>Score:${point}`;
+                    console.log('wrong');
                     gameover();
+                    
                 }
             })
         }
@@ -72,14 +94,13 @@ function Play(){
      }, 2000);
      point=0;
         document.getElementById('score').innerText=`Score:${point}`;
-        fetchclick();
         randomColor();
-        
 }
 
 function gameover(){
     gameoverr.style.display='flex';
     ground.style.display='none';
+    clear();
 }
 
 function menutoggle(){
@@ -87,6 +108,8 @@ function menutoggle(){
     ground.style.display='none';
     gameoverr.style.display='none'
 }
+
+fetchclick();
 
 for(var i=0;i< playbtn.length;i++){
     playbtn[i].addEventListener('click',function(){

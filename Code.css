@@ -397,7 +397,8 @@
   grid-template-areas:
   'q1 q2'
   'q3 q4';
-  margin-top: 100px;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 #q1{
   grid-area: q1 ;
@@ -467,6 +468,7 @@
   text-align: center;
 }
 #question{
+  height: 100px;
   font-size: 100px;
   font-family: 'Courier New', Courier, monospace;
   color:white;
@@ -487,4 +489,11 @@
   text-align: center;
   padding:50px;
   font-family: 'Courier New', Courier, monospace;
+}
+#question1{
+  height: 100px;
+  font-size: 100px;
+  font-family: 'Courier New', Courier, monospace;
+  color:white;
+  padding: 20px 20px;
 }
